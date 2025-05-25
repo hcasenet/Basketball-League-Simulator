@@ -1,0 +1,35 @@
+<!-- project/templates/project/league.html -->
+
+{% extends 'project/base.html' %}
+
+<h1>Displaying Selected League</h1>
+
+{% block content %}
+<article class="featured">
+    <!-- display the league logo -->
+    {% if league.logo %}
+    <img src="{{ league.logo.url }}" alt="Logo for {{ league.name }}" style="width:200px;height:auto;">
+    {% else %}
+    <p>No logo available for this league.</p>
+    {% endif %}
+    
+    <!-- display league details -->
+    <div>
+        <h2>{{ league.name }}</h2>
+        <p><strong>Number of Teams:</strong> {{ league.num_teams }}</p>
+        <p><strong>Number of Games:</strong> {{ league.num_games }}</p>
+    </div>
+
+    <!--management links only for the league owner -->
+    {% if request.user == league.user_league %}
+    <div>
+        <h3>League Management</h3>
+        <ul>
+            <li><a href="{% url 'league_management' league.pk %}">Manage League Simulation</a></li>
+            <li><a href="{% url 'league_update' league.pk %}">Update This League</a></li>
+            <li><a href="{% url 'league_delete' league.pk %}">Delete This League</a></li>
+        </ul>
+    </div>
+    {% endif %}
+</article>
+{% endblock %}

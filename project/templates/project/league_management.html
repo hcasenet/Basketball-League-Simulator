@@ -1,0 +1,42 @@
+<!-- project/templates/project/league_management.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+<div class="grid-container">
+    <article class="featured">
+        <h2>Managing League: {{ league.name }}</h2>
+        <img src="{{ league.logo.url }}" alt="{{ league.name }} Logo">
+        <p><strong>Number of Teams:</strong> {{ league.num_teams }}</p>
+        <p><strong>Total Number of Games Simulated:</strong> {{ num_games_simulated }}</p>
+        <p><strong>Created By:</strong> {{ league.user_league.username }}</p>
+    </article>
+
+    <article>
+        <h3>Managing Options</h3>
+        <div>
+            <!-- always provide the option to resimulate games -->
+            <form method="post" action="{% url 'simulate_league' league.pk %}">
+                {% csrf_token %}
+                <button type="submit" name="resimulate" class="btn">Resimulate Games</button>
+            </form>
+
+            <div>
+                <a href="{% url 'league_stats' league.pk %}">League Stats</a>
+            </div>
+            <div>
+                <a href="{% url 'league_teams' league.pk %}">Manage Teams</a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<!-- display any messages that may need to be shown - such as resimulation prompts -->
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p class="message {{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

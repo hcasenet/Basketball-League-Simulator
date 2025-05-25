@@ -1,0 +1,19 @@
+<!-- project/templates/project/team_roster.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<!-- shows the team roster by getting the player's team name -->
+
+<h2>{{ players.first.team }} Roster</h2>
+<ul>
+    {% for player in players %}
+    <li>
+        {{ player }} <!-- displays player and lets you update them -->
+        <a href="{% url 'player_detail' player.team.league.pk player.team.pk player.pk %}" class="btn">View Details</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'league_teams' players.first.team.league.pk %}" class="btn">Back to Teams</a>
+{% endblock %}

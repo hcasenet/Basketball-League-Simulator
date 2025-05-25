@@ -1,0 +1,44 @@
+<!-- project/templates/project/league_list.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+<h1>My Leagues</h1>
+
+<!-- table to display teams, loop displays all possible teams -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>League Name</th>
+            <th>Logo</th>
+            <th>Number of Teams</th>
+            <th>Number of Games</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for league in leagues %}
+        <tr>
+            <td>{{ league.name }}</td>
+            <td>
+                {% if league.logo %}
+                    <img src="{{ league.logo.url }}" alt="{{ league.name }} Logo" style="width:100px;height:auto;">
+                {% else %}
+                    <p>No logo available</p>
+                {% endif %}
+            </td>
+            <td>{{ league.num_teams }}</td>
+            <td>{{ league.num_games }}</td>
+            <td>
+                <a href="{% url 'league_detail' league.pk %}">View Details</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- button to create a new league -->
+<div class="create-league-button">
+    <a href="{% url 'create_league' %}" class="btn btn-primary">Create New League</a>
+</div>
+{% endblock %}

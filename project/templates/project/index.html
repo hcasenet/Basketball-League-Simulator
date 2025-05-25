@@ -1,0 +1,16 @@
+<!-- project/templates/project/index.html -->
+<!-- this will only show if a user is not authenticated -->
+ 
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<body>
+    <header>
+        <h1>Welcome to League Simulator!</h1>
+        <h2>Please login to continue.</h2>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+    </header>
+</body>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<!-- project/templates/project/player_detail.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<!-- displays all the information about a player -->
+
+<h2>{{ player.first_name }} {{ player.last_name }}</h2>
+
+<p><strong>Team:</strong> {{ player.team }}</p>
+<p><strong>Position:</strong> {{ player.position }}</p>
+<p><strong>Star Player:</strong> {{ player.star|yesno:"Yes,No" }}</p>
+<p><strong>Date of Birth:</strong> {{ player.dob }}</p>
+
+<!-- links for editing player/returning to prev page -->
+ 
+<a href="{% url 'update_player' player.team.league.pk player.team.pk player.pk %}">
+    Edit Player
+</a>
+<a href="{% url 'team_roster' player.team.league.pk player.team.pk %}">Back to Roster</a>
+
+{% endblock %}

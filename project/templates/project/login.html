@@ -1,0 +1,27 @@
+<!-- project/templates/project/login.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<h1>Login</h1>
+
+<form method="post" action="{% url 'login' %}" >
+    {% csrf_token %}
+
+    {{form}}
+
+    <!-- when done with login, this is what we go to next-->
+    {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{request.GET.next}}"> <!-- if we have a next page that we can go to, 
+        then we go there. -->
+    {% else %}
+        <input type="hidden" name="next" value="{% url 'league_list' %}">
+    {% endif %}
+
+    <input type="submit" value="Login">
+</form>
+
+<h2> Not already a user?  <a href="{% url 'create_user' %}">Register here:</a></h2>
+
+{% endblock %}

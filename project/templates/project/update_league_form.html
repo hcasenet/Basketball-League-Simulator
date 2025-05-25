@@ -1,0 +1,14 @@
+<!-- project/templates/project/update_league_form.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+<h1>Update League</h1>
+<!-- call the form which will be used to update the league, encapsulated in forms.py -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Update League</button>
+    <a href="{% url 'league_detail' object.pk %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

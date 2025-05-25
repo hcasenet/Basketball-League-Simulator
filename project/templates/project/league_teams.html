@@ -1,0 +1,21 @@
+<!-- project/templates/project/league_teams.html -->
+
+{% extends 'project/base.html' %}
+
+<!-- display the teams in a league -->
+ 
+{% block content %}
+<h2>Teams in {{ league.name }}</h2>
+<ul>
+    {% for team in teams %}
+    <li>
+        {{ team }}
+        <a href="{% url 'team_roster' league.pk team.pk %}" class="btn">Roster</a>
+        <a href="{% url 'team_detail' league.pk team.pk %}" class="btn">Details</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'league_management' league.pk %}">Back to Management</a>
+
+{% endblock %}

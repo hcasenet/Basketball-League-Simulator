@@ -1,0 +1,78 @@
+td{
+    text-align: center;
+}
+
+#buttontd{
+    text-align: left;
+    border: 1px solid;
+}
+
+#buttontd{
+    text-align: left;
+    border: 1px solid;
+}
+
+#quoted-text{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#profile-photo{
+    width: 500px;
+    height: 450px;
+}
+
+#intro-photo{
+    width: 70px;
+    height: 50px;
+    
+}
+
+#activity-photo{
+    width: 300px;
+}
+
+#constrained-col{
+    width: 300px;
+}
+
+h3{
+    text-align: center;
+}
+
+html{
+    background-color: darkred;
+    color: white;
+}
+
+div{
+    padding: 25px;
+    margin-left: 50px;
+}
+
+#mylink{
+    color: blue;
+}
+
+#mylink:visited{
+    color:white;
+}
+
+h1{
+    font-family: "Times New Roman", Times, serif;
+}
+h2{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+table{
+    text-align: center;
+}
+
+body{
+    text-align: center;
+    padding: 75px;
+}

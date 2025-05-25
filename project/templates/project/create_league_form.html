@@ -1,0 +1,44 @@
+<!-- project/templates/project/create_league_form.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Create a New League</h1>
+
+    <!-- display flash messages (success or error) -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="message {{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for field in form %} <!-- display every single field in the form-->
+            <div class="form-group">
+                <label for="id_{{ field.name }}">{{ field.label }}:</label>
+                {{ field }}
+
+                {% if field.errors %} <!-- show any possible errors -->
+                    <div class="text-danger">
+                        {{ field.errors|join:", " }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Create League</button>
+    </form>
+
+    <p><strong>Changes made here will not be able to be adjusted later!</strong></p>
+
+    <hr>
+    <a href="{% url 'league_list' %}">Back to League List</a>
+</div>
+
+{% endblock %}

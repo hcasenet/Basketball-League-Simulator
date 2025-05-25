@@ -1,0 +1,18 @@
+<!-- project/templates/project/update_team_form.html -->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+
+<h1>Update Team: {{ object.name }}</h1>
+
+<!-- call the form which will be used to update the team-->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+
+<a href="{% url 'team_detail' object.league.pk object.pk %}">Back to Team</a>
+
+{% endblock %}

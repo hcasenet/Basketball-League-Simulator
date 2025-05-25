@@ -1,0 +1,48 @@
+<!-- project/templates/project/base.html -->
+
+{% load static %}
+<html>
+    <head>
+        <title>Basketball League Simulator</title>
+        <link rel="stylesheet" href="{% static 'styles-project.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>Basketball League Simulator</h1>  
+        </header>
+
+        <div>
+            <!-- urls to display to all users -->
+            <li><a href="{% url 'index' %}">Main Menu</a></li> 
+            
+            {% if not user.is_authenticated %} <!-- only show user options to people who are not logged in -->
+                <li></li><a href="{% url 'create_user' %}">Create New User</a></li> <!-- create new profile -->
+                <li><a href="{% url 'login' %}">Login to existing user</a></li>  <!-- login to existing profile -->
+            {% else %}
+                <!-- we only want to show this for someone who's already logged in-->
+                <form action="{% url 'logout' %}" method= "POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Logout">
+                </form>
+            {% endif %}
+        </div>
+
+        <br>
+
+        <div>
+            <!-- request is the HTTP request object-->
+            <!-- request.user is the Django user associated with this request!-->
+            {% if request.user.is_authenticated %}
+                {{request.user}} is logged in
+            {% else %}
+                Not logged in.
+            {% endif %}
+        </div>
+    
+ 
+    <hr>
+    {% block content %}
+
+    {% endblock %}    
+    </body>
+</html>
