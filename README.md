@@ -1,6 +1,6 @@
 **Basketball League Simulator (Django)**
 
-A full-stack web application that allows users to create, manage, and simulate custom basketball leagues with realistic scheduling and live standings. Built using Django, this project features dynamic game simulation, role-based access control, and real-time team statistics updates.
+A full-stack web application that allows users to create, manage, and simulate custom basketball leagues with realistic scheduling and standings. Built using Django, this project features dynamic game simulation, role-based access control, and team statistics updates.
 
 Author: Hinsley Casenet
 
