@@ -10,10 +10,10 @@ Author: Hinsley Casenet
   Users can create and manage multiple basketball leagues with custom teams and players.
 
 *Dynamic Game Scheduling*
-  Simulates seasons using randomized intervals while respecting rest days and availability for teams.
+  Simulates seasons using randomized intervals while respecting scheduling availability for teams.
 
 *Live Standings & Stats*
-  Tracks game results, team records, and updates league standings in real-time.
+  Tracks game results, team records, and updates league standings when simulated.
 
 *User Authentication & Role Management*  
   Built with Django Authentication and custom permission logic for admin/user role access.
